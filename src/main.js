@@ -5,6 +5,9 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 //导入格式化时间的插件
 import moment from 'moment'
+//安装缩略图插件
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
 //安装路由
 Vue.use(VueRouter)
 //安装vue-resource
@@ -14,11 +17,16 @@ Vue.use(VueResource)
 Vue.http.options.root = 'http://www.liulongbin.top:3005/'
 
 // 按需导入Mint UI 模块
-import { Header, Swipe, SwipeItem, Button} from 'mint-ui'
-Vue.component(Header.name, Header)
-Vue.component(Swipe.name, Swipe)
-Vue.component(SwipeItem.name, SwipeItem)
-Vue.component(Button.name, Button)
+// import { Header, Swipe, SwipeItem, Button, Lazyload} from 'mint-ui'
+// Vue.component(Header.name, Header)
+// Vue.component(Swipe.name, Swipe)
+// Vue.component(SwipeItem.name, SwipeItem)
+// Vue.component(Button.name, Button)
+// Vue.use(Lazyload)
+//按需导入不能实现懒加载，所以改为全部导入
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+Vue.use(MintUI)
 //导入Mint UI 样式
 import 'mint-ui/lib/style.css'
 // 导入mui样式文件
@@ -34,6 +42,8 @@ import router from './router.js'
 Vue.filter('dataFormat',function (dataStr,pattern='YYYY-MM-DD HH:mm:ss') {
     return moment(dataStr).format(pattern)
 })
+//全局配置post数据提交格式
+Vue.http.options.emulateJSON = true
 
 //创建一个vue实例
 var vm = new Vue({
