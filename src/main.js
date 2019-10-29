@@ -12,6 +12,76 @@ Vue.use(VuePreview)
 Vue.use(VueRouter)
 //安装vue-resource
 Vue.use(VueResource)
+//注册安装vuex
+import Vuex from 'vuex'
+Vue.use(Vuex)
+//实例化一个store仓库
+//从本地存储中获取购物车商品信息
+var car = JSON.parse(localStorage.getItem('car') || '[]')
+var store = new Vuex.Store({
+    state: {
+        goods: car//用来存放加入购物车时所有的商品信息对象
+                // 格式为{id:商品的id,count:选择商品的数量,price:商品的单价,selected:商品是否为选中状态，默认为true}
+    },
+    mutations: {
+        //将商品信息存到store仓库中
+        //如果已经有该商品信息，仅添加数量
+        addToCar(state,goodsinfo){
+            var flag = false //默认购物车中没有该商品
+            state.goods.some(item => {
+                if (item.id == goodsinfo.id){
+                    item.count += parseInt(goodsinfo.count)
+                    flag = true
+                    return true
+                }
+            })
+            //如果购物车中没有该商品信息，则把该商品信息push到仓库中
+            if(!flag){
+                this.state.goods.push(goodsinfo)
+            }
+            //将购物车中的商品信息存放到本地
+            localStorage.setItem('car',JSON.stringify(state.goods))
+        },
+        //更新购物车中的商品数量
+        updateGoodsCount(state,goodsinfo){
+            state.goods.some(item=>{
+                if (item.id == goodsinfo.id){
+                    item.count = parseInt(goodsinfo.count)
+                    return true
+                }
+            })
+            localStorage.setItem('car',JSON.stringify(state.goods))
+        },
+        //删除商品
+        removeComment(state,id){
+            state.goods.some((item,i)=>{
+                if(item.id == id){
+                    state.goods.splice(i,1)
+                    return true
+                }
+            })
+            localStorage.setItem('car',JSON.stringify(state.goods))
+        }
+    },
+    getters:{
+        //计算所有加入购物车的数量
+        countAll(state){
+            var sum = 0
+            state.goods.forEach(item=>{
+                sum += item.count
+            })
+            return sum
+        },
+        //获取每项商品的数量,属性名为id值，属性值为数量
+        getGoodsCount(state){
+            var o = {}
+            state.goods.forEach(item=>{
+                o[item.id] = item.count
+            })
+            return o
+        }
+    }
+})
 
 //配置资源请求根路径
 Vue.http.options.root = 'http://www.liulongbin.top:3005/'
@@ -49,5 +119,6 @@ Vue.http.options.emulateJSON = true
 var vm = new Vue({
     el: '#app',
     render: c => c(app),
-    router //将路由对象挂载到vue实例中
+    router, //将路由对象挂载到vue实例中
+    store//将store挂载到vue实例中
 })
