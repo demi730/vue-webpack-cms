@@ -61,6 +61,16 @@ var store = new Vuex.Store({
                 }
             })
             localStorage.setItem('car',JSON.stringify(state.goods))
+        },
+        //得到选择框的选中状态并将改变存储到本地存储中
+        getSelectedChanged(state,o){
+            state.goods.some(item=>{
+                if (item.id == o.id){
+                    item.selected = o.selected
+                    return true
+                }
+            })
+            localStorage.setItem('car',JSON.stringify(state.goods))
         }
     },
     getters:{
@@ -77,6 +87,28 @@ var store = new Vuex.Store({
             var o = {}
             state.goods.forEach(item=>{
                 o[item.id] = item.count
+            })
+            return o
+        },
+        //获取每件商品的选中状态,属性名为id值，属性值为selected选中状态
+        getSelected(state){
+            var o = {}
+            state.goods.forEach(item => {
+                o[item.id] = item.selected
+            })
+            return o
+        },
+        //计算共买了多少件商品，共花了多少钱
+        getAmount(state){
+            var o = {
+                amount:0,
+                price:0
+            }
+            state.goods.forEach(item=>{
+                if (item.selected){
+                    o.amount += item.count
+                    o.price += item.price*item.count
+                }
             })
             return o
         }
