@@ -7,6 +7,9 @@
         filename: 'bundle.js',
          path: path.join(__dirname,'dist')
      },
+     devServer: {
+         disableHostCheck: true
+     },
      plugins:[
          new htmlWebpackPlugin({
              template:path.join(__dirname, 'src/index.html'),
@@ -35,15 +38,13 @@
                  test:/\.(png|jpg|gif|ttf|svg)$/,
                  use: ['url-loader?limit=43960']
              },
-             // {
-             //     test:/\.js$/,
-             //     use:'babel-loader',
-             //     exclude:/(node_modules|bower_components)/,
-             //     options: {
-             //         presets: ['@babel/preset-env'],
-             //         plugins: ['@babel/transform-runtime']
-             //     }
-             // }
+             {
+                 test:'/\.(js|jsx)$/',
+                 use:{
+                     loader:'babel-loader'
+                 },
+                 exclude:/node_module/
+             }
          ]
      }
  }

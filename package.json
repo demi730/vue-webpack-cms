@@ -5,17 +5,13 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --hot --port 3000 --open"
+    "dev": "webpack-dev-server --hot --open",
+    "pub": "webpack --config webpack.publish.config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
-    "babel-loader": "^8.0.0-beta.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-runtime": "^6.26.0",
     "css-loader": "^0.28.11",
     "file-loader": "^4.2.0",
     "html-webpack-plugin": "^2.30.1",
@@ -38,5 +34,13 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^2.11.5"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "optimize-css-assets-webpack-plugin": "^3.2.0"
+  }
 }

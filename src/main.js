@@ -116,7 +116,7 @@ var store = new Vuex.Store({
 })
 
 //配置资源请求根路径
-Vue.http.options.root = 'http://www.liulongbin.top:3005/'
+Vue.http.options.root = 'http://api.cms.liulongbin.top/'
 
 // 按需导入Mint UI 模块
 // import { Header, Swipe, SwipeItem, Button, Lazyload} from 'mint-ui'
@@ -127,7 +127,6 @@ Vue.http.options.root = 'http://www.liulongbin.top:3005/'
 // Vue.use(Lazyload)
 //按需导入不能实现懒加载，所以改为全部导入
 import MintUI from 'mint-ui'
-import 'mint-ui/lib/style.css'
 Vue.use(MintUI)
 //导入Mint UI 样式
 import 'mint-ui/lib/style.css'
