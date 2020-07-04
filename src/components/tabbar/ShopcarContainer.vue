@@ -104,6 +104,10 @@
                           font-size: 14px;
                           font-weight: bold;
                       }
+                      a{
+                          display: inline-block;
+                          width: 30px;
+                      }
                   }
               }
           }

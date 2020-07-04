@@ -2,7 +2,7 @@
     <div>
         <!--顶部滑动区域-->
         <div id="slider" class="mui-slider">
-            <div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+            <div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted" style="overflow: scroll;">
                 <div class="mui-scroll">
                     <a :class="['mui-control-item',item.id==0 ? 'mui-active' : '']" href="#item1mobile" data-wid="tab-top-subpage-1.html"
                        v-for="item in categories" :key="item.id" @click="getPhotoListById(item.id)">
