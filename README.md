@@ -1,7 +1,7 @@
 # vue-webpack-cms
 
 ## 目录结构
-
+```
 my-project
 ├── dist                      # 打包完的文件会自动放在这里
 |
@@ -29,18 +29,23 @@ my-project
 ├── webpack.config.js         # wabpack开发配置
 ├── wepack.public.config.js   # webpack生产配置
 
+```
 ## 安装
 
 // 安装前请先确保已安装node和npm
+
 // 需要提前在全局安装webpack和webpack-dev-server,如果已安装请忽略
 `npm install webpack -g`
+
 `npm install webpack-dev-server -g`
 
 // 安装成功后,再安装依赖
+
 `npm install`
 ## 运行 
 #### 开发环境
 // 注意首次使用需要执行下面的init命令来生成入口html文件,以后不用再执行
+
 `npm run init`
 `npm run dev`
 #### 生产环境(打包)
@@ -52,4 +57,3 @@ my-project
 * 当手机和电脑处于同一个WIFI中之后，大运行终端命令`ipconfig`，查找 无线局域网适配器 的网络配置，复制其IPv4的地址；
 * 把复制的Ip地址，粘贴到package.json中：`"dev": "webpack-dev-server --hot --open --port 3000 --host 127.0.0.1"`,将--host指令设置为 WIFI的地址；
 * 打开自己的手机浏览器，输入 http:// + IP地址 + 端口号，就能在手机上调试自己的网站了！
-## 项目展示
