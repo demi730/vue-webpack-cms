@@ -46,14 +46,27 @@ my-project
 #### 开发环境
 // 注意首次使用需要执行下面的init命令来生成入口html文件,以后不用再执行
 
-`npm run init`
-`npm run dev`
+```
+npm run init
+npm run dev
+```
+
 #### 生产环境(打包)
 `npm run pub`
-#### 访问 
-在浏览器地址栏输入http://127.0.0.1:3000
+
 ### 使用手机调试Vue项目
 * 前提：要保证自己的手机和当前做项目的电脑，处于同一个WIFI环境中；
 * 当手机和电脑处于同一个WIFI中之后，大运行终端命令`ipconfig`，查找 无线局域网适配器 的网络配置，复制其IPv4的地址；
 * 把复制的Ip地址，粘贴到package.json中：`"dev": "webpack-dev-server --hot --open --port 3000 --host 127.0.0.1"`,将--host指令设置为 WIFI的地址；
 * 打开自己的手机浏览器，输入 http:// + IP地址 + 端口号，就能在手机上调试自己的网站了！
+### 项目展示
+![首页](https://pics.images.ac.cn/image/5f0097ce0fc04.html)
+![新闻资讯](https://pics.images.ac.cn/image/5f0097ced3fff.html)
+![新闻内容](https://pics.images.ac.cn/image/5f0097d03026f.html)
+![新闻评论](https://pics.images.ac.cn/image/5f0097ce75683.html)
+![图片分享](https://pics.images.ac.cn/image/5f0097cf4b504.html)
+![图片详情](https://pics.images.ac.cn/image/5f0097cfc1ac9.html)
+![图片浏览](https://pics.images.ac.cn/image/5f0097d0a9bae.html)
+![商品购买](https://pics.images.ac.cn/image/5f0097d10162c.html)
+![商品详情](https://pics.images.ac.cn/image/5f0097d15f25b.html)
+![购物车](https://pics.images.ac.cn/image/5f0097d1cf632.html)
