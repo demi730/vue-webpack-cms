@@ -60,8 +60,8 @@ npm run dev
 * 把复制的Ip地址，粘贴到package.json中：`"dev": "webpack-dev-server --hot --open --port 3000 --host 127.0.0.1"`,将--host指令设置为 WIFI的地址；
 * 打开自己的手机浏览器，输入 http:// + IP地址 + 端口号，就能在手机上调试自己的网站了！
 ### 项目展示
-![首页](https://pics.images.ac.cn/image/5f0097ce0fc04.html "首页")
-![新闻资讯](https://pics.images.ac.cn/image/5f0097ced3fff.html)
+![首页](https://github.com/demi730/vue-webpack-cms/blob/master/%E9%A1%B9%E7%9B%AE%E6%BC%94%E7%A4%BA/%E9%A6%96%E9%A1%B5.png)
+![新闻资讯](https://github.com/demi730/vue-webpack-cms/blob/master/%E9%A1%B9%E7%9B%AE%E6%BC%94%E7%A4%BA/%E6%96%B0%E9%97%BB%E8%B5%84%E8%AE%AF.png)
 ![新闻内容](https://pics.images.ac.cn/image/5f0097d03026f.html)
 ![新闻评论](https://pics.images.ac.cn/image/5f0097ce75683.html)
 ![图片分享](https://pics.images.ac.cn/image/5f0097cf4b504.html)
